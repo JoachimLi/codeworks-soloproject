@@ -13,4 +13,21 @@ const createUser = async (ctx) => {
   }
 };
 
-module.exports = { createUser };
+const login = async (ctx) => {
+  const { email, password } = ctx.request.body;
+  console.log('email', email);
+  console.log('password', password);
+  try {
+    const user = await User.findOne({ email: email });
+    console.log('user', user);
+    ctx.status = 200;
+    ctx.body = user._id;
+  } catch (error) {
+    ctx.status = 401;
+  }
+};
+
+module.exports = {
+  createUser,
+  login
+};
