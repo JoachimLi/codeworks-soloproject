@@ -1,0 +1,11 @@
+{
+  "name": "solo-project",
+  "version": "1.0.0",
+  "description": "Codeworks Solo Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joachim Liedtke",
+  "license": "ISC"
+}
