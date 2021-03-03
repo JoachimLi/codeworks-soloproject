@@ -1,5 +1,7 @@
-const { create } = require('./user.controller');
+const { createUser } = require('./user.controller');
+const { createFlight } = require('./flight.controller');
 
 module.exports = {
-  create,
+  createUser,
+  createFlight
 };
