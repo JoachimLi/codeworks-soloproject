@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
   },
   categoriesToTrack: {
     type: Array,
-    required: false
+    required: true
   },
   flights: {
     type: Array,
