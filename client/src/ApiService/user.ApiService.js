@@ -10,7 +10,12 @@ const authenticateUser = (user) => {
   return axios.post(`${BASE_URL}/login`, user)
 }
 
+const getUserDetails = (id) => {
+  return axios.post(`${BASE_URL}/details`, id)
+}
+
 module.exports = {
   registerUser,
-  authenticateUser
+  authenticateUser,
+  getUserDetails
 }
