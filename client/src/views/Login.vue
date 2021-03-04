@@ -1,9 +1,12 @@
 <template>
-  <h1>Login here</h1>
+  <form-log-in/>
 </template>
 
 <script>
+import FormLogIn from '../components/FormLogIn'
+
 export default {
+  components: { FormLogIn },
   name: 'Login'
 }
 </script>
