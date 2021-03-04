@@ -54,7 +54,7 @@ export default {
         // store user data in global vuex store
         store.dispatch('setUser', response.data)
         // TODO: forward to profile page
-        router.push({ name: 'Login' })
+        router.push({ name: 'Profile' })
         console.log('store.state.user', store.state.user)
       } catch (error) {
         // TODO: throw better error
