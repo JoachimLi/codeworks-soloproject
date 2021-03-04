@@ -1,24 +1,60 @@
 <template>
   <div>
-    <div v-if="userDetails">
-      <h2>{{`${userDetails.firstName} ${userDetails.lastName}`}}</h2>
-      <h4>{{userDetails.email}}</h4>
+    <div v-if="user">
+      <h2>{{`${user.firstName} ${user.lastName}`}}</h2>
+      <h4>{{user.email}}</h4>
+      <h4>Categories Tracked</h4>
       <ul>
-        <li v-for="(category, index) in userDetails.categoriesToTrack" :key="index">{{JSON.parse(category).categoryName}}</li>
+        <li v-for="(category, index) in user.categoriesToTrack" :key="index">{{category.title}}</li>
       </ul>
+      <form @submit.prevent="addCategories">
+        <label for="addCategories">Add Categories (komma separated)</label>
+        <input type="text" v-model="state.categoriesToAdd">
+        <button type="submit">Add</button>
+      </form>
     </div>
     <div v-else>Loading...</div>
   </div>
 </template>
 
 <script>
+import { computed, reactive } from 'vue'
+import store from '../store'
+
 export default {
   name: 'UserProfileDetails',
   props: [
     'userDetails'
-  ]
+  ],
+
+  setup () {
+    const state = reactive({
+      categoriesToAdd: ''
+    })
+
+    const user = computed(() => store.state.user)
+
+    function addCategories () {
+      const newCategories = state.categoriesToAdd.split(',')
+      const newCategoriesArr = [...user.value.categoriesToTrack]
+      newCategories.forEach(element => {
+        newCategoriesArr.push({ title: element, timeLogged: '' })
+      })
+      store.dispatch('addCategories', newCategoriesArr)
+      state.categoriesToAdd = ''
+    }
+
+    return {
+      state,
+      user,
+      addCategories
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+li {
+  list-style-type: none;
+}
 </style>

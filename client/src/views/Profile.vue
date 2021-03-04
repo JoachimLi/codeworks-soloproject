@@ -24,8 +24,7 @@ export default {
       const id = { userId }
       try {
         const details = await getUserDetails(id)
-        state.user = details.data
-        console.log('state.user', state.user)
+        store.state.user = { ...store.state.user, ...details.data }
       } catch (error) {
         console.log('error', error)
       }
