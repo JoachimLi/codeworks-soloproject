@@ -35,7 +35,21 @@ const login = async (ctx) => {
   }
 };
 
+const userDetails = async (ctx) => {
+  const userId = ctx.request.body;
+  console.log('userId', userId);
+  
+  try {
+    const { email, firstName, lastName, categoriesToTrack } = await User.findById(userId);
+    ctx.status = 200;
+    ctx.body = { email, firstName, lastName, categoriesToTrack };
+  } catch (error) {
+    ctx.status = 500;
+  }
+};
+
 module.exports = {
   createUser,
-  login
+  login,
+  userDetails
 };
