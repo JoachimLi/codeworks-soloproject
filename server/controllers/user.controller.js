@@ -38,9 +38,9 @@ const login = async (ctx) => {
 const userDetails = async (ctx) => {
   const { userId } = ctx.request.body;
   try {
-    const { email, firstName, lastName, categoriesToTrack } = await User.findById(userId);
+    const { _id, email, firstName, lastName, categoriesToTrack } = await User.findById(userId);
     ctx.status = 200;
-    ctx.body = { email, firstName, lastName, categoriesToTrack };
+    ctx.body = { _id, email, firstName, lastName, categoriesToTrack };
   } catch (error) {
     ctx.status = 500;
   }
