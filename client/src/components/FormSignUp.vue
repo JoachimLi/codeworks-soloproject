@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Sign up</h1>
-    <form @submit.prevent="registerUser" id="register" class="register__form">
+    <form @submit.prevent="signUp" id="register" class="register__form">
       <label for="email">Email</label>
       <input id="email" type="email" v-model="state.email" placeholder="email">
 
@@ -24,6 +24,7 @@
 
 <script>
 import { reactive } from 'vue'
+import { registerUser } from '@/ApiService/user.ApiService.js'
 
 export default {
   name: 'FormSignUp',
@@ -39,13 +40,20 @@ export default {
       confirmPassword: ''
     })
 
-    function registerUser () {
-      console.log('email', state.email)
+    function signUp () {
+      const response = registerUser({
+        email: state.email,
+        firstName: state.firstName,
+        lastName: state.lastName,
+        password: state.password
+        // confirmPassword: state.confirmPassword
+      })
+      console.log('response', response)
     }
 
     return {
       state,
-      registerUser
+      signUp
     }
   }
 }
