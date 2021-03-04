@@ -43,7 +43,7 @@ router.beforeEach(async (to, from, next) => {
   const requiresUser = to.matched.some(record => record.meta.requiresUser)
 
   if (requiresUser && !store.state.user) next({ name: 'Login' })
-  else next();
+  else next()
 })
 
 export default router
