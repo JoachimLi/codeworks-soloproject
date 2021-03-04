@@ -24,6 +24,8 @@
 
 <script>
 import { reactive } from 'vue'
+import store from '../store'
+import router from '../router'
 import { registerUser } from '@/ApiService/user.ApiService.js'
 
 export default {
@@ -40,15 +42,24 @@ export default {
       confirmPassword: ''
     })
 
-    function signUp () {
-      const response = registerUser({
-        email: state.email,
-        firstName: state.firstName,
-        lastName: state.lastName,
-        password: state.password
-        // confirmPassword: state.confirmPassword
-      })
-      console.log('response', response)
+    async function signUp () {
+      try {
+        const response = await registerUser({
+          email: state.email,
+          firstName: state.firstName,
+          lastName: state.lastName,
+          password: state.password
+          // confirmPassword: state.confirmPassword
+        })
+        // store user data in global vuex store
+        store.dispatch('setUser', response.data)
+        // TODO: forward to profile page
+        router.push({ name: 'Profile' })
+        console.log('store.state.user', store.state.user)
+      } catch (error) {
+        // TODO: throw better error
+        console.log('error', error)
+      }
     }
 
     return {
@@ -60,6 +71,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// TODO: improve styling
   .register__form {
     display: flex;
     flex-direction: column;
