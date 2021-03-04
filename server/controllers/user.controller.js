@@ -5,7 +5,11 @@ const createUser = async (ctx) => {
   try {
     await user.save();
     ctx.status = 201;
-    ctx.body = user;
+    ctx.body = {
+      _id: user._id,
+      firstName: user.firstName,
+      lastName: user.lastName
+    };
   } catch (error) {
     console.log('The following error occured while registering a new user:', error);
     ctx.status = 500;
@@ -21,7 +25,11 @@ const login = async (ctx) => {
     const user = await User.findOne({ email: email });
     console.log('user', user);
     ctx.status = 200;
-    ctx.body = user._id;
+    ctx.body = {
+      _id: user._id,
+      firstName: user.firstName,
+      lastName: user.lastName
+    };
   } catch (error) {
     ctx.status = 401;
   }
