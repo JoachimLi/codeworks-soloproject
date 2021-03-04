@@ -2,6 +2,12 @@ const { User } = require('../models');
 
 const createUser = async (ctx) => {
   const user = new User({...ctx.request.body});
+  // add these categories by default for every new user
+  user.categoriesToTrack = [
+    { title: 'total', timeLogged: '' },
+    { title: 'pic', timeLogged: '' },
+    { title: 'night', timeLogged: '' }
+  ];
   try {
     await user.save();
     ctx.status = 201;
@@ -23,7 +29,6 @@ const login = async (ctx) => {
   console.log('password', password);
   try {
     const user = await User.findOne({ email: email });
-    console.log('user', user);
     ctx.status = 200;
     ctx.body = {
       _id: user._id,
