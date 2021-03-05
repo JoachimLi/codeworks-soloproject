@@ -30,6 +30,14 @@ const routes = [
     meta: {
       requiresUser: true
     }
+  },
+  {
+    path: '/logbook',
+    name: 'Logbook',
+    component: () => import(/* webpackChunkName: "logbook" */ '../views/Logbook.vue'),
+    meta: {
+      requiresUser: true
+    }
   }
 ]
 

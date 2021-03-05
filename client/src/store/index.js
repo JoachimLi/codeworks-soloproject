@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    user: null
+    user: null,
+    flights: null
   },
 
   mutations: {
@@ -16,6 +17,10 @@ export default createStore({
 
     REMOVE_USER (state) {
       state.user = null
+    },
+
+    SET_FLIGHTS (state, flights) {
+      state.flights ? state.flights.concat(flights) : state.flights = flights
     }
   },
 
@@ -30,6 +35,10 @@ export default createStore({
 
     removeUser ({ commit }) {
       commit('REMOVE_USER')
+    },
+
+    setFligths ({ commit }, flights) {
+      commit('SET_FLIGHTS', flights)
     }
   },
 

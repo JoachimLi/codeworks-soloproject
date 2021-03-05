@@ -3,7 +3,7 @@
     <div class="navbar__img"></div>
     <nav class="navigation authenticated" v-if="$store.state.user">
         <router-link class="nav__link" :to="{ name: 'Profile' }">Profile</router-link>
-        <!-- <router-link class="nav__link" :to="{ name: 'Logbook' }">Logbook</router-link> -->
+        <router-link class="nav__link" :to="{ name: 'Logbook' }">Logbook</router-link>
         <a class="logout" @click="logout">Logout</a>
     </nav>
     <nav class="navigation no-auth" v-else>
