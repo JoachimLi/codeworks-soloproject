@@ -37,7 +37,7 @@ export default createStore({
       commit('REMOVE_USER')
     },
 
-    setFligths ({ commit }, flights) {
+    setFlights ({ commit }, flights) {
       commit('SET_FLIGHTS', flights)
     }
   },
