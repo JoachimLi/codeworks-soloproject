@@ -19,8 +19,13 @@ export default createStore({
       state.user = null
     },
 
-    SET_FLIGHTS (state, flights) {
-      state.flights ? state.flights.concat(flights) : state.flights = flights
+    SET_FLIGHTS (state, flts) {
+      if (!state.flights) { // if flights array does not exist yet
+        state.flights = flts
+      } else { // if it does exist, add new flight(s)
+        const flightsArr = [...state.flights, ...flts]
+        state.flights = flightsArr
+      }
     }
   },
 
@@ -37,8 +42,9 @@ export default createStore({
       commit('REMOVE_USER')
     },
 
-    setFlights ({ commit }, flights) {
-      commit('SET_FLIGHTS', flights)
+    setFlights ({ commit }, flts) {
+      console.log('flights', flts)
+      commit('SET_FLIGHTS', flts)
     }
   },
 

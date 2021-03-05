@@ -23,9 +23,10 @@ export default {
     async function getUserInfo (userId) {
       const id = { userId }
       try {
-        const details = await getUserDetails(id)
+        const details = await getUserDetails(id) // get user details from server
         store.state.user = { ...store.state.user, ...details.data }
       } catch (error) {
+        // TODO: throw better error
         console.log('error', error)
       }
     }

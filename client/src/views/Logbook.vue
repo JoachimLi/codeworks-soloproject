@@ -21,7 +21,7 @@ export default {
 
   setup () {
     const state = reactive({
-      addFlight: false
+      addFlight: false // determines whether form-add-flight element is visible
     })
 
     function toggleModal () {
@@ -31,13 +31,13 @@ export default {
     async function fetchFlights (userId) {
       const id = { userId }
       try {
-        const flights = await getFlights(id)
+        const flights = await getFlights(id) // get all the detailed flight objects for a user
         store.dispatch('setFlights', flights.data)
       } catch (error) {
         console.log('error', error)
       }
     }
-    onMounted(fetchFlights(store.state.user._id))
+    onMounted(fetchFlights(store.state.user._id)) // get all flights from db on component mount
 
     return {
       state,

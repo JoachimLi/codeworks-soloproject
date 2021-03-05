@@ -3,7 +3,7 @@
     <div class="modal">
       <div class="header">
         <h4>add flight</h4>
-        <a @click="$emit('toggleModal')">X</a>
+        <a @click="$emit('toggleModal')">X</a>    <!-- emit event to parent -->
       </div>
       <form @submit.prevent="addFlight">
         <div class="input-item" v-for="(value, key) in state.flightDetails" :key="key">
@@ -32,19 +32,20 @@ export default {
   name: 'FormAddFlight',
   emits: 'toggleModal',
 
-  setup () {
+  setup (_, { emit }) {
     const state = reactive({
-      flightDetails: { ...flight }
+      flightDetails: { ...flight } // flight => flight model from import
     })
 
     const categories = computed(() => store.state.user.categoriesToTrack)
 
     async function addFlight () {
       const flight = state.flightDetails
-      flight.categories = categories.value
+      flight.categories = categories.value // data in computed properties need to be accessed with the value property
       flight.userId = store.state.user._id
-      const flightAdded = await setFlight(flight)
-      console.log('flightAdded', flightAdded)
+      const newFlight = await setFlight(flight) // send new flight to api
+      emit('toggleModal') // close modal
+      await store.dispatch('setFlights', [newFlight.data]) // add new flight to vuex store
     }
 
     return {

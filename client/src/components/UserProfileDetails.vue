@@ -35,6 +35,7 @@ export default {
 
     const user = computed(() => store.state.user)
 
+    // add new time categories to track to the user
     async function addCategories () {
       const newCategories = state.categoriesToAdd.split(',')
       const newCategoriesArr = [...user.value.categoriesToTrack]
@@ -42,7 +43,7 @@ export default {
         newCategoriesArr.push({ title: element, timeLogged: '' })
       })
       await store.dispatch('addCategories', newCategoriesArr)
-      updateUser({ _id: user.value._id, categoriesToTrack: store.state.user.categoriesToTrack })
+      updateUser({ _id: user.value._id, categoriesToTrack: store.state.user.categoriesToTrack }) // update user object in db with new categories
       state.categoriesToAdd = ''
     }
 

@@ -23,9 +23,7 @@ const routes = [
   {
     path: '/profile',
     name: 'Profile',
-    // route level code-splitting
-    // this generates a separate chunk (profile.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    // route level code-splitting for lazy loading
     component: () => import(/* webpackChunkName: "profile" */ '../views/Profile.vue'),
     meta: {
       requiresUser: true
@@ -34,6 +32,7 @@ const routes = [
   {
     path: '/logbook',
     name: 'Logbook',
+    // route level code-splitting for lazy loading
     component: () => import(/* webpackChunkName: "logbook" */ '../views/Logbook.vue'),
     meta: {
       requiresUser: true

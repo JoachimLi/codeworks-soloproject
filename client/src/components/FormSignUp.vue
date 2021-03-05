@@ -31,9 +31,7 @@ import { registerUser } from '@/ApiService/user.ApiService.js'
 export default {
   name: 'FormSignUp',
 
-  // use Vue3 Composition API
   setup () {
-    // component data store
     const state = reactive({
       email: '',
       firstName: '',
@@ -49,11 +47,10 @@ export default {
           firstName: state.firstName,
           lastName: state.lastName,
           password: state.password
-          // confirmPassword: state.confirmPassword
+          // confirmPassword: state.confirmPassword       // for later use: confirm password match on backend?
         })
         // store user data in global vuex store
         store.dispatch('setUser', response.data)
-        // TODO: forward to profile page
         router.push({ name: 'Profile' })
         console.log('store.state.user', store.state.user)
       } catch (error) {

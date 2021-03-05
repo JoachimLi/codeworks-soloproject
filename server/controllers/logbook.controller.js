@@ -19,10 +19,10 @@ const createFlight = async (ctx) => {
 const getFlights = async (ctx) => {
   const { userId } = ctx.request.body;
   try {
-    const { flights } = await User.findById(userId);
+    const { flights } = await User.findById(userId);    // get flights array from user object
     const flightDetails = [];
     for ( const id of flights) {
-      const flight = await Flight.findById(id);
+      const flight = await Flight.findById(id);         // for each flight id in flights array, get flight object from api
       flightDetails.push(flight);
     }
     ctx.status = 200;
