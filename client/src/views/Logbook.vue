@@ -3,13 +3,13 @@
   <h1>logbook</h1>
   <flight-log v-if="$store.state.flights"/>
   <h3 v-else>Loading...</h3>
-  <form-add-flight v-if="state.addFlight" @toggleModal="toggleModal"/>
+  <form-add-flight v-if="state.addFlight" @toggleModal="toggleModal" :categories="state.categories"/>
   <button @click="toggleModal">Add flight</button>
 </div>
 </template>
 
 <script>
-import { onMounted, reactive } from 'vue'
+import { computed, onMounted, reactive } from 'vue'
 import { getFlights } from '../ApiService/logbook.ApiService'
 import store from '../store'
 import FlightLog from '../components/FlightLog.vue'
@@ -24,9 +24,11 @@ export default {
       addFlight: false
     })
 
+    const categories = computed(() => store.state.user.categoriesToTrack)
+
     function toggleModal () {
       state.addFlight = !state.addFlight
-      console.log('addFlight', state.addFlight)
+      console.log('categories', categories)
     }
 
     async function fetchFlights (userId) {
@@ -42,6 +44,7 @@ export default {
 
     return {
       state,
+      categories,
       toggleModal
     }
   }
