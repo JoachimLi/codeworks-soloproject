@@ -62,11 +62,11 @@ export default {
       vertical-align: center;
       text-decoration: none;
       color: white;
-      padding: 0 10px;
+      padding: 5px 10px 0;
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
-      font-family:Arial, Helvetica, sans-serif;
-      font-weight: bold;
+      font-size: 1.1rem;
+      font-weight: 700;
 
       &.router-link-exact-active {
         background-color: #fff;

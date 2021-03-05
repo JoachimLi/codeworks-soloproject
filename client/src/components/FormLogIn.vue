@@ -1,14 +1,20 @@
 <template>
-  <div>
+  <div class="wrapper">
     <h1>Sign up</h1>
-    <form @submit.prevent="logIn" id="login" class="login__form">
-      <label for="email">Email</label>
-      <input id="email" type="email" v-model="state.email" placeholder="email">
+    <form @submit.prevent="logIn" id="login" class="login-form">
+      <div class="user-info-item">
+        <label for="email">Email</label>
+        <input id="email" type="email" v-model="state.email" placeholder="Email">
+      </div>
 
-      <label for="password">Password</label>
-      <input id="password" type="text" v-model="state.password" placeholder="Password">
+      <div class="user-info-item">
+        <label for="password">Password</label>
+        <input id="password" type="password" v-model="state.password" placeholder="Password">
+      </div>
 
-      <button type="submit">Log In</button>
+      <div>
+        <button type="submit"><span>Log In</span></button>
+      </div>
     </form>
   </div>
 </template>
@@ -53,9 +59,67 @@ export default {
 
 <style lang="scss" scoped>
 // TODO: improve styling
-  .login__form {
-    display: flex;
-    flex-direction: column;
+  .wrapper {
+    box-sizing: border-box;
+    width: 50vw;
+    margin: auto;
+    margin-top: 40px;
+    padding: 40px;
+    box-shadow: 0 0 5px gray;
+    border-radius: 5px;
 
+    h1 {
+      margin: 0;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      margin: 20px auto;
+
+      .user-info-item {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        min-width: 70%;
+        margin: auto;
+        margin-bottom: 15px;
+
+        label {
+          text-align: start;
+          margin: 0 0 5px 5px;
+          font-weight: 500;
+        }
+
+        input {
+          font-size: 1rem;
+          padding: 3px;
+          padding-left: 5px;
+          border: none;
+          border-radius: 5px;
+          box-shadow: 0 0 5px gray;
+
+          &::placeholder {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 300;
+          }
+        }
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 5px 15px;
+        border-radius: 5px;
+        border: none;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+
+        span {
+          font-family: 'Quicksand', sans-serif;
+          font-weight: 700;
+        }
+      }
+    }
   }
 </style>
