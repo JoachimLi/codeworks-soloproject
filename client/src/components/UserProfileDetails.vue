@@ -20,6 +20,7 @@
 <script>
 import { computed, reactive } from 'vue'
 import store from '../store'
+import { updateUser } from '../ApiService/user.ApiService'
 
 export default {
   name: 'UserProfileDetails',
@@ -34,13 +35,14 @@ export default {
 
     const user = computed(() => store.state.user)
 
-    function addCategories () {
+    async function addCategories () {
       const newCategories = state.categoriesToAdd.split(',')
       const newCategoriesArr = [...user.value.categoriesToTrack]
       newCategories.forEach(element => {
         newCategoriesArr.push({ title: element, timeLogged: '' })
       })
-      store.dispatch('addCategories', newCategoriesArr)
+      await store.dispatch('addCategories', newCategoriesArr)
+      updateUser({ _id: user.value._id, categoriesToTrack: store.state.user.categoriesToTrack })
       state.categoriesToAdd = ''
     }
 

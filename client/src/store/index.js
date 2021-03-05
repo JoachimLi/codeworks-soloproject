@@ -22,7 +22,6 @@ export default createStore({
 
     addCategories ({ commit }, categories) {
       commit('SET_CATEGORIES', categories)
-      console.log('user.categoriesToTrack', this.state.user.categoriesToTrack)
     }
   },
 
