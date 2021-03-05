@@ -40,7 +40,6 @@ export default {
         store.dispatch('setUser', response.data)
         // TODO: forward to profile page
         router.push({ name: 'Profile' })
-        console.log('store.state.user', store.state.user)
       } catch (error) {
         // TODO: throw better error
         console.log('error', error)

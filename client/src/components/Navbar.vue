@@ -1,16 +1,35 @@
 <template>
   <div class="navbar__wrapper">
     <div class="navbar__img"></div>
-    <nav class="navigation">
-      <router-link class="nav__link" :to="{ name: 'Register' }">Register</router-link>
-      <router-link class="nav__link" :to="{ name: 'Login' }">Login</router-link>
+    <nav class="navigation authenticated" v-if="$store.state.user">
+        <router-link class="nav__link" :to="{ name: 'Profile' }">Profile</router-link>
+        <!-- <router-link class="nav__link" :to="{ name: 'Logbook' }">Logbook</router-link> -->
+        <a class="logout" @click="logout">Logout</a>
+    </nav>
+    <nav class="navigation no-auth" v-else>
+        <router-link class="nav__link" :to="{ name: 'Register' }">Register</router-link>
+        <router-link class="nav__link" :to="{ name: 'Login' }">Login</router-link>
     </nav>
   </div>
 </template>
 
 <script>
+import store from '../store'
+import router from '../router'
+
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+
+  setup () {
+    function logout () {
+      store.dispatch('removeUser')
+      router.push({ name: 'Login' })
+    }
+
+    return {
+      logout
+    }
+  }
 }
 </script>
 
@@ -53,6 +72,11 @@ export default {
         background-color: #fff;
         color: #000;
       }
+    }
+
+    .logout {
+      color: white;
+      cursor: pointer;
     }
   }
 }

@@ -12,6 +12,10 @@ export default createStore({
 
     SET_CATEGORIES (state, categories) {
       state.user.categoriesToTrack = categories
+    },
+
+    REMOVE_USER (state) {
+      state.user = null
     }
   },
 
@@ -22,6 +26,10 @@ export default createStore({
 
     addCategories ({ commit }, categories) {
       commit('SET_CATEGORIES', categories)
+    },
+
+    removeUser ({ commit }) {
+      commit('REMOVE_USER')
     }
   },
 
