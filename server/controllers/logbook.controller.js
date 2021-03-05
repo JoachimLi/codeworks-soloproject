@@ -3,7 +3,10 @@ const { Flight, User } = require('../models');
 const createFlight = async (ctx) => {
   const flight = new Flight({...ctx.request.body});
   try {
-    await flight.save();
+    const user = await User.findById(flight.userId);
+    const newFlight = await flight.save();
+    user.flights.push(newFlight._id.toString());    // newflight._id is of type ObjectId => needs to be of type String
+    await user.save();                              // add flight to this users flights array
     ctx.status = 201;
     ctx.body = flight;
   } catch (error) {
