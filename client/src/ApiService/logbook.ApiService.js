@@ -3,7 +3,7 @@ const axios = require('axios')
 const BASE_URL = 'http://localhost:3000/logbook'
 
 const getFlights = (userId) => {
-  return axios.post('/flights', userId)
+  return axios.post(`${BASE_URL}/fligths`, userId)
 }
 
 module.exports = {

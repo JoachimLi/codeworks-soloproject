@@ -8,7 +8,7 @@
 
 <script>
 import { onMounted } from 'vue'
-// import { getFlights } from '../ApiService/'
+import { getFlights } from '../ApiService/logbook.ApiService'
 import store from '../store'
 import FlightLog from '../components/FlightLog.vue'
 
@@ -21,11 +21,11 @@ export default {
   //   })
 
     async function fetchFlights (userId) {
-      const id = { _id: userId }
+      const id = { userId }
       try {
         console.log('id', id)
-        // await getFlights(userId)
-        // console.log('store.state.user', store.state.user)
+        const flights = await getFlights(userId)
+        console.log('flights', flights)
       } catch (error) {
         console.log('error', error)
       }
