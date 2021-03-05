@@ -31,7 +31,8 @@ const login = async (ctx) => {
     ctx.body = {
       _id: user._id,
       firstName: user.firstName,
-      lastName: user.lastName
+      lastName: user.lastName,
+      categoriesToTrack: user.categoriesToTrack
     };
   } catch (error) {
     ctx.status = 401;
