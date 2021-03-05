@@ -6,6 +6,11 @@ const getFlights = (userId) => {
   return axios.post(`${BASE_URL}/flights`, userId)
 }
 
+const setFlight = (flight) => {
+  return axios.post(`${BASE_URL}/new-flight`, flight)
+}
+
 module.exports = {
-  getFlights
+  getFlights,
+  setFlight
 }
