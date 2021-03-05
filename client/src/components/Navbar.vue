@@ -2,9 +2,11 @@
   <div class="navbar__wrapper">
     <div class="navbar__img"></div>
     <nav class="navigation authenticated" v-if="$store.state.user">
+      <div class="link-wrapper">
         <router-link class="nav__link" :to="{ name: 'Profile' }">Profile</router-link>
         <router-link class="nav__link" :to="{ name: 'Logbook' }">Logbook</router-link>
-        <a class="logout" @click="logout">Logout</a>
+      </div>
+      <a class="logout" @click="logout">Logout</a>
     </nav>
     <nav class="navigation no-auth" v-else>
         <router-link class="nav__link" :to="{ name: 'Register' }">Register</router-link>
@@ -40,7 +42,7 @@ export default {
   align-items: center;
 
   .navbar__img {
-    width: 100vw;
+    width: 100%;
     height: 75px;
     background-image: url('../assets/img/logbook.jpg');
     background-size: cover;
@@ -50,12 +52,19 @@ export default {
 
   .navigation {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
     background-color: #000;
     height: 2rem;
     border-top: 5px solid #000;
+
+    .link-wrapper {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      flex-grow: 19;
+    }
 
     .nav__link, &:visited {
       height: 100%;
@@ -76,7 +85,10 @@ export default {
 
     .logout {
       color: white;
+      font-size: 1rem;
+      padding-top: 3px;
       cursor: pointer;
+      flex-grow: 1;
     }
   }
 }
