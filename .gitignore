@@ -1,3 +1,4 @@
 .vscode
+*.zip
 node_modules
 jsconfig.json

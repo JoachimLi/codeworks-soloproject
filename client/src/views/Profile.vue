@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Profile</h1>
+    <h1>Dashboard</h1>
     <user-profile-details :userDetails="state.user"/>
   </div>
 </template>

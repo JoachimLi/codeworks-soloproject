@@ -1,9 +1,24 @@
 <template>
   <div>
-    <div v-if="user">
-      <h2>{{`${user.firstName} ${user.lastName}`}}</h2>
-      <h4>{{user.email}}</h4>
-      <h4>Categories Tracked</h4>
+    <div v-if="user" class="wrapper">
+      <div class="user-info-item">
+        <h3>First Name:</h3>
+        <h3>{{user.firstName}}</h3>
+        <button></button>
+      </div>
+
+      <div class="user-info-item">
+        <h3>Last Name:</h3>
+        <h3>{{user.lastName}}</h3>
+        <button></button>
+      </div>
+
+      <div class="user-info-item">
+        <h3>Email:</h3>
+        <h3>{{user.email}}</h3>
+        <button></button>
+      </div>
+        <h3>Categories Tracked</h3>
       <ul>
         <li v-for="(category, index) in user.categoriesToTrack" :key="index">{{category.title}}</li>
       </ul>
@@ -57,7 +72,50 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-li {
-  list-style-type: none;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 60%;
+  max-width: 800px;
+
+  .user-info-item {
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+      margin: 0 0 5px;
+      font-weight: 500;
+
+      &:first-child {
+        width: 50%;
+        text-align: end;
+        padding-right: 10px;
+      }
+
+      &:nth-child(2) {
+        text-align: start;
+        flex-grow: 1;
+      }
+    }
+
+    button {
+      border: none;
+      background-color: white;
+      background-image: url(../assets/outline_edit_black_24dp.png);
+      background-size: cover;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  li {
+    list-style-type: none;
+  }
 }
 </style>
