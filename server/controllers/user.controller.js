@@ -24,9 +24,7 @@ const createUser = async (ctx) => {
 };
 
 const login = async (ctx) => {
-  const { email, password } = ctx.request.body;
-  console.log('email', email);
-  console.log('password', password);
+  const { email } = ctx.request.body;     // ctx.request.body also includes password for later use
   try {
     const user = await User.findOne({ email: email });
     ctx.status = 200;
@@ -40,6 +38,7 @@ const login = async (ctx) => {
   }
 };
 
+// get user details from db
 const userDetails = async (ctx) => {
   const { userId } = ctx.request.body;
   try {
@@ -51,8 +50,23 @@ const userDetails = async (ctx) => {
   }
 };
 
+// add time categories to user document in db
+const updateUser = async (ctx) => {
+  const newUserInfo = ctx.request.body;
+  try {
+    const user = await User.findById(newUserInfo._id);
+    Object.assign(user, newUserInfo);
+    await user.save();
+    ctx.status = 200;
+  } catch (error) {
+    ctx.status = 500;
+    console.log('error', error);
+  }
+};
+
 module.exports = {
   createUser,
   login,
-  userDetails
+  userDetails,
+  updateUser
 };
