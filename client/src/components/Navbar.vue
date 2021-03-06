@@ -1,6 +1,7 @@
 <template>
   <div class="navbar__wrapper">
     <div class="navbar__img"></div>
+
     <nav class="navigation authenticated" v-if="$store.state.user">
       <div class="link-wrapper">
         <router-link class="nav__link" :to="{ name: 'Profile' }">Profile</router-link>
@@ -8,9 +9,12 @@
       </div>
       <a class="logout" @click="logout">Logout</a>
     </nav>
+
     <nav class="navigation no-auth" v-else>
+      <div class="link-wrapper">
         <router-link class="nav__link" :to="{ name: 'Register' }">Register</router-link>
         <router-link class="nav__link" :to="{ name: 'Login' }">Login</router-link>
+      </div>
     </nav>
   </div>
 </template>

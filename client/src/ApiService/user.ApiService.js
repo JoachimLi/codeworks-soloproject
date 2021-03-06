@@ -15,7 +15,6 @@ const getUserDetails = (userId) => {
 }
 
 const updateUser = (newUserInfo) => {
-  console.log('newUserInfo', newUserInfo)
   return axios.post(`${BASE_URL}/update`, newUserInfo)
 }
 

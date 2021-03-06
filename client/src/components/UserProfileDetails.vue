@@ -23,7 +23,7 @@
         <li v-for="(category, index) in user.categoriesToTrack" :key="index">{{category.title}}</li>
       </ul>
       <form @submit.prevent="addCategories">
-        <label for="addCategories">Add Categories (komma separated)</label>
+        <label for="addCategories">Add Categories (comma separated)</label>
         <input type="text" v-model="state.categoriesToAdd">
         <button type="submit">Add</button>
       </form>
