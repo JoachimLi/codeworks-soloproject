@@ -75,15 +75,18 @@ export default {
   }
 
   ul {
+    box-sizing: border-box;
     width: 50%;
-    padding: 0;
+    padding: 10px;
     margin: 0 0 10px;
     display: flex;
     flex-wrap: wrap;
+    box-shadow: 0 0 5px gray;
+    border-radius: 5px;
 
     li {
       width: 25%;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       list-style-type: none;
       cursor: pointer;
 
@@ -92,7 +95,7 @@ export default {
         display: flex;
         justify-content: space-between;
         width: 90%;
-        margin: 0 10px;
+        margin: 5px;
         padding: 0 10px;
         border-radius: 10px;
         text-transform: uppercase;
@@ -109,7 +112,7 @@ export default {
   form {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 50%;
 
     label {
       display: flex;

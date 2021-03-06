@@ -43,7 +43,6 @@ export default createStore({
     },
 
     setFlights ({ commit }, flts) {
-      console.log('flights', flts)
       commit('SET_FLIGHTS', flts)
     }
   },

@@ -42,6 +42,10 @@ const flightSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  categories: {
+    type: Array,
+    required: true
+  }
 }, { collection: 'flights' });
 
 module.exports = mongoose.model('Flight', flightSchema);

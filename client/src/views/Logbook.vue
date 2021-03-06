@@ -32,7 +32,7 @@ export default {
       const id = { userId }
       try {
         const flights = await getFlights(id) // get all the detailed flight objects for a user
-        store.dispatch('setFlights', flights.data)
+        await store.dispatch('setFlights', flights.data) // and store them in the vuex store
       } catch (error) {
         console.log('error', error)
       }
