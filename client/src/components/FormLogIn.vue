@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <h1>Sign up</h1>
+    <h1>Log in</h1>
     <form @submit.prevent="logIn" id="login" class="login-form">
       <div class="user-info-item">
         <label for="email">Email</label>
@@ -60,6 +60,8 @@ export default {
 // TODO: improve styling
   .wrapper {
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     width: 50vw;
     margin: auto;
     margin-top: 40px;
@@ -74,6 +76,7 @@ export default {
     .login-form {
       display: flex;
       flex-direction: column;
+      width: 80%;
       margin: 20px auto;
 
       .user-info-item {

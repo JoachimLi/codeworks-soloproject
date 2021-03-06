@@ -85,6 +85,8 @@ export default {
 <style lang="scss" scoped>
   .wrapper {
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     width: 50vw;
     margin: auto;
     margin-top: 40px;
@@ -100,6 +102,7 @@ export default {
     .register-form {
       display: flex;
       flex-direction: column;
+      width: 80%;
       margin: 20px auto;
 
       .user-info-item {
