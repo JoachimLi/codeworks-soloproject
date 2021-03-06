@@ -12,9 +12,12 @@
     </ul>
 
     <form @submit.prevent="addCategories">
-      <label for="addCategories">Add Categories (comma separated)</label>
+      <label for="addCategories">
+        <p>Add Categories</p>
+        <p>(comma separated)</p>
+      </label>
       <input type="text" v-model="state.categoriesToAdd">
-      <button type="submit">Add</button>
+      <Button text="Add"/>
     </form>
   </div>
 </template>
@@ -23,8 +26,10 @@
 import { computed, reactive } from 'vue'
 import store from '../store'
 import { updateUser } from '../ApiService/user.ApiService'
+import Button from './Button.vue'
 
 export default {
+  components: { Button },
   name: 'SetupCategories',
 
   setup () {
@@ -61,6 +66,8 @@ export default {
   display: flex;
   width: 60%;
   max-width: 800px;
+  font-size: 1rem;
+  font-weight: 500;
 
   h3 {
     margin: 0 0 5px;
@@ -88,22 +95,45 @@ export default {
         margin: 0 10px;
         padding: 0 10px;
         border-radius: 10px;
-        font-size: 1rem;
         text-transform: uppercase;
-        font-weight: 500;
         vertical-align: middle;
         background-color: rgb(219, 219, 219);
 
-        p {
-          margin: 0;
-
-          &:last-child {
+        p:last-child {
             color: rgb(165, 165, 165);
-          }
         }
       }
     }
   }
 
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+
+    label {
+      display: flex;
+      margin-bottom: 5px;
+
+      p {
+        font-weight: 600;
+
+        &:last-child {
+          margin-left: 5px;
+          font-weight: 300;
+        }
+      }
+    }
+
+    input {
+      font-size: 1rem;
+      padding: 3px;
+      padding-left: 5px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 5px gray;
+      margin-bottom: 10px;
+    }
+  }
 }
 </style>
