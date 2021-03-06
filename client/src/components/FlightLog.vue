@@ -2,7 +2,7 @@
   <div class="wrapper">
     <h3>flight log</h3>
     <div class="flight" v-for="flight in $store.state.flights" :key="flight._id">
-      <div class="date">{{flight.date}}</div>
+      <div class="date">{{$moment(flight.date).format('MMMM YYYY')}}</div>
       <div class="date">{{flight.aircraftRegistration}}</div>
       <div class="date">{{flight.departure}}</div>
       <div class="date">{{flight.destination}}</div>
@@ -15,8 +15,17 @@
 </template>
 
 <script>
+import { inject } from 'vue'
 export default {
-  name: 'FlightLog'
+  name: 'FlightLog',
+
+  setup () {
+    const $moment = inject('$moment') // inject $moment, as provided in main.js
+
+    return {
+      $moment
+    }
+  }
 }
 </script>
 
