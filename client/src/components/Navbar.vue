@@ -12,6 +12,7 @@
 
     <nav class="navigation no-auth" v-else>
       <div class="link-wrapper">
+        <router-link class="nav__link" :to="{ name: 'Home' }">Home</router-link>
         <router-link class="nav__link" :to="{ name: 'Register' }">Register</router-link>
         <router-link class="nav__link" :to="{ name: 'Login' }">Login</router-link>
       </div>
