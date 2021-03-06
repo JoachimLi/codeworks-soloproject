@@ -4,8 +4,8 @@
 
     <nav class="navigation authenticated" v-if="$store.state.user">
       <div class="link-wrapper">
-        <router-link class="nav__link" :to="{ name: 'Profile' }">Profile</router-link>
         <router-link class="nav__link" :to="{ name: 'Logbook' }">Logbook</router-link>
+        <router-link class="nav__link" :to="{ name: 'Profile' }">Profile</router-link>
       </div>
       <a class="logout" @click="logout">Logout</a>
     </nav>

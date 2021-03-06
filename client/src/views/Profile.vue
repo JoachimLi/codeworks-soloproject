@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1>Dashboard</h1>
+    <h1>Details</h1>
     <user-profile-details :userDetails="state.user"/>
+    <setup-categories/>
   </div>
 </template>
 
@@ -10,9 +11,10 @@ import { reactive, onMounted } from 'vue'
 import store from '../store'
 import { getUserDetails } from '../ApiService/user.ApiService'
 import UserProfileDetails from '../components/UserProfileDetails.vue'
+import SetupCategories from '../components/SetupCategories.vue'
 
 export default {
-  components: { UserProfileDetails },
+  components: { UserProfileDetails, SetupCategories },
   name: 'Profile',
 
   setup () {
@@ -42,4 +44,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 </style>

@@ -11,10 +11,7 @@
         <label for="password">Password</label>
         <input id="password" type="password" v-model="state.password" placeholder="Password">
       </div>
-
-      <div>
-        <button type="submit"><span>Log In</span></button>
-      </div>
+      <Button text="Log In"/>
     </form>
   </div>
 </template>
@@ -24,8 +21,10 @@ import { reactive } from 'vue'
 import store from '../store'
 import router from '../router'
 import { authenticateUser } from '@/ApiService/user.ApiService.js'
+import Button from './Button.vue'
 
 export default {
+  components: { Button },
   name: 'FormLogIn',
 
   setup () {
@@ -103,21 +102,6 @@ export default {
             font-family: 'Quicksand', sans-serif;
             font-weight: 300;
           }
-        }
-      }
-
-      button {
-        font-size: 1rem;
-        padding: 5px 15px;
-        border-radius: 5px;
-        border: none;
-        background-color: black;
-        color: white;
-        cursor: pointer;
-
-        span {
-          font-family: 'Quicksand', sans-serif;
-          font-weight: 700;
         }
       }
     }

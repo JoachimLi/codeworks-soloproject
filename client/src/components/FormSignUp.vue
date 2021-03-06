@@ -27,9 +27,10 @@
         <input id="confirmPassword" type="password" v-model="state.confirmPassword" placeholder="Confirm Password">
       </div>
 
-      <div>
+      <!-- <div>
         <button type="submit"><span>Sign Up</span></button>
-      </div>
+      </div> -->
+      <Button text="Sign Up" />
     </form>
   </div>
 </template>
@@ -39,8 +40,10 @@ import { reactive } from 'vue'
 import store from '../store'
 import router from '../router'
 import { registerUser } from '@/ApiService/user.ApiService.js'
+import Button from './Button.vue'
 
 export default {
+  components: { Button },
   name: 'FormSignUp',
 
   setup () {
@@ -125,22 +128,6 @@ export default {
             font-family: 'Quicksand', sans-serif;
             font-weight: 300;
           }
-        }
-      }
-
-      button {
-        font-size: 1rem;
-        padding: 5px 15px;
-        border-radius: 5px;
-        border: none;
-        background-color: black;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-
-        span {
-          font-family: 'Quicksand', sans-serif;
-          font-weight: 700;
         }
       }
     }
