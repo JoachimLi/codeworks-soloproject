@@ -14,7 +14,7 @@
 
 export default {
   name: 'Modal',
-  props: [ 'text' ]
+  props: ['text']
 }
 </script>
 
