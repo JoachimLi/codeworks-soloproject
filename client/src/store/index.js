@@ -43,6 +43,12 @@ export default createStore({
     },
 
     setFlights ({ commit }, flts) {
+      // sort flights descending by date
+      flts.sort((a, b) => {
+        if (a.date < b.date) return 1
+        if (a.date > b.date) return -1
+        return 0
+      })
       commit('SET_FLIGHTS', flts)
     }
   },
