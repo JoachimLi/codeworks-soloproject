@@ -22,12 +22,13 @@
         <div class="heading">block</div>
         <div class="date">{{flight.offBlock}}</div>
         <div class="date">{{flight.onBlock}}</div>
-        <div class="total">{{flight.categories[0].timeLogged}}</div>
+        <div class="total">{{flight.blockTime}}</div>
       </div>
       <div class="container">
         <div class="heading">flight</div>
         <div class="date">{{flight.takeOff}}</div>
         <div class="date">{{flight.landing}}</div>
+        <div class="total">{{flight.flightTime}}</div>
       </div>
       <div class="details" @click="toggleDetails(flight)">
         <svg xmlns="http://www.w3.org/2000/svg" height="34px" viewBox="0 0 24 24" width="34px" fill="#cfcfcf">
