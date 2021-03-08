@@ -3,7 +3,9 @@
   <h1>logbook</h1>
   <flight-log v-if="$store.state.flights"/>
   <h3 v-else>Loading...</h3>
-  <form-add-flight v-if="state.addFlight" @toggleModal="toggleModal"/>
+  <Modal v-if="state.addFlight" @toggleModal="toggleModal" text="add flight">
+    <form-add-flight/>
+  </Modal>
   <Button @click="toggleModal" text="add flight"/>
 </div>
 </template>
@@ -15,9 +17,10 @@ import store from '../store'
 import FlightLog from '../components/FlightLog.vue'
 import FormAddFlight from '../components/FormAddFlight.vue'
 import Button from '../components/Button.vue'
+import Modal from '../components/Modal.vue'
 
 export default {
-  components: { FlightLog, FormAddFlight, Button },
+  components: { FlightLog, FormAddFlight, Button, Modal },
   name: 'Logbook',
 
   setup () {
