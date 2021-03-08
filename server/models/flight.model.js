@@ -42,6 +42,14 @@ const flightSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  blockTime: {
+    type: String,
+    required: true
+  },
+  flightTime: {
+    type: String,
+    required: true
+  },
   categories: {
     type: Array,
     required: true
