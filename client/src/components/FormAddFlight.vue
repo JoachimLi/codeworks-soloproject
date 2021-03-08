@@ -1,62 +1,57 @@
 <template>
   <form class="wrapper" @submit.prevent="addFlight">
-    <!-- <div class="input-item" v-for="(value, key) in state.flightDetails" :key="key">
-      <label>{{key}}
-        <input type="text" v-model="state.flightDetails[key]">
-      </label>
-    </div> -->
     <div class="input-group">
       <div class="input-item">
         <label>date
-          <input type="date" v-model="state.flightDetails.date">
+          <input type="date" tabindex="1" v-model="state.flightDetails.date">
         </label>
       </div>
 
       <div class="input-item">
         <label>dep
-          <input type="text" maxlength="4" v-model="state.flightDetails.departure">
+          <input type="text" maxlength="4" tabindex="1" v-model="state.flightDetails.departure">
         </label>
       </div>
 
       <div class="input-item">
         <label>dest
-          <input type="text" maxlength="4" v-model="state.flightDetails.destination">
+          <input type="text" maxlength="4" tabindex="1" v-model="state.flightDetails.destination">
         </label>
       </div>
 
       <div class="input-item">
         <label> a/c reg
-          <input type="text" v-model="state.flightDetails.aircraftRegistration">
+          <input type="text" tabindex="1" v-model="state.flightDetails.aircraftRegistration">
         </label>
       </div>
 
       <div class="input-item">
         <label>off block
-          <input type="time" v-model="state.flightDetails.offBlock">
+          <input type="time" tabindex="3" v-model="state.flightDetails.offBlock">
         </label>
       </div>
 
       <div class="input-item">
         <label>on block
-          <input type="time" v-model="state.flightDetails.onBlock">
+          <input type="time" tabindex="3" v-model="state.flightDetails.onBlock">
         </label>
       </div>
 
       <div class="input-item">
         <label>a/c type
-          <input type="text" maxlength="4" v-model="state.flightDetails.aircraftType">
+          <input type="text" maxlength="4" tabindex="2" v-model="state.flightDetails.aircraftType">
         </label>
       </div>
 
       <div class="input-item">
         <label>takeoff
-          <input type="time" v-model="state.flightDetails.takeOff">
+          <input type="time" tabindex="3" v-model="state.flightDetails.takeOff">
         </label>
       </div>
 
       <div class="input-item">
         <label>landing
-          <input type="time" v-model="state.flightDetails.landing">
+          <input type="time" tabindex="3" v-model="state.flightDetails.landing">
         </label>
       </div>
 
@@ -65,11 +60,11 @@
     <div class="input-group">
       <div class="input-item" v-for="(category, index) in categories" :key="index">
         <label>{{category.title}}
-          <input type="time" v-model="category.timeLogged">
+          <input type="time" tabindex="4" v-model="category.timeLogged">
         </label>
       </div>
     </div>
-    <Button text="Log"/>
+    <Button text="Log" tabindex="5"/>
   </form>
 </template>
 
@@ -82,6 +77,7 @@ import Button from './Button.vue'
 
 export default {
   components: { Button },
+  props: ['toggleModal'],
   name: 'FormAddFlight',
 
   setup (_, { emit }) {
@@ -137,6 +133,8 @@ export default {
         line-height: 1.2rem;
         font-size: .9rem;
         text-transform: uppercase;
+        text-align: center;
+        font-family: 'Quicksand', sans-serif;
 
         &:focus {
           outline: none;
@@ -144,8 +142,14 @@ export default {
 
         &[type="date"] {
           width: 125px;
-          padding-left: 5px;
-          font-family: 'Quicksand', sans-serif;
+
+          &::-webkit-calendar-picker-indicator{
+            margin-left: 0px;
+          }
+        }
+
+        &[type="time"]::-webkit-calendar-picker-indicator {
+          display: none;
         }
 
         &.time {

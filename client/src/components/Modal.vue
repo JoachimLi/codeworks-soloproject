@@ -11,10 +11,19 @@
 </template>
 
 <script>
-
 export default {
   name: 'Modal',
-  props: ['text']
+  props: ['text'],
+
+  setup () {
+    function toggleModal () {
+      console.log('log')
+    }
+
+    return {
+      toggleModal
+    }
+  }
 }
 </script>
 

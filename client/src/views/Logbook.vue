@@ -3,10 +3,10 @@
   <h1>logbook</h1>
   <flight-log v-if="$store.state.flights"/>
   <h3 v-else>Loading...</h3>
-  <Modal v-if="state.addFlight" @toggleModal="toggleModal" text="add flight">
-    <form-add-flight/>
+  <Modal v-if="state.addFlight" text="add flight">
+    <form-add-flight @toggleModal="test"/>
   </Modal>
-  <Button @click="toggleModal" text="add flight"/>
+  <Button @click="onToggleModal" text="add flight"/>
 </div>
 </template>
 
@@ -28,8 +28,13 @@ export default {
       addFlight: false // determines whether form-add-flight element is visible
     })
 
-    function toggleModal () {
+    function onToggleModal () {
       state.addFlight = !state.addFlight
+      console.log('modal state', state.addFlight)
+    }
+
+    function test () {
+      console.log('test')
     }
 
     async function fetchFlights (userId) {
@@ -45,7 +50,8 @@ export default {
 
     return {
       state,
-      toggleModal
+      onToggleModal,
+      test
     }
   }
 }
