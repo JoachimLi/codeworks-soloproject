@@ -41,6 +41,7 @@ export default {
     .header {
       display: flex;
       justify-content: flex-end;
+      text-transform: capitalize;
 
       h4 {
         flex-grow: 5;
