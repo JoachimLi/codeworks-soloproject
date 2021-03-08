@@ -77,6 +77,7 @@ export default {
   ul {
     box-sizing: border-box;
     width: 50%;
+    min-height: 1.5rem;
     padding: 10px;
     margin: 0 0 10px;
     display: flex;

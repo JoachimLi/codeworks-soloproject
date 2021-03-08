@@ -3,11 +3,11 @@ const { User } = require('../models');
 const createUser = async (ctx) => {
   const user = new User({...ctx.request.body});
   // add these categories by default for every new user
-  user.categoriesToTrack = [
-    { title: 'total', timeLogged: '' },
-    { title: 'pic', timeLogged: '' },
-    { title: 'night', timeLogged: '' }
-  ];
+  // user.categoriesToTrack = [
+  //   { title: 'total', timeLogged: '' },
+  //   { title: 'pic', timeLogged: '' },
+  //   { title: 'night', timeLogged: '' }
+  // ];
   try {
     await user.save();
     ctx.status = 201;
