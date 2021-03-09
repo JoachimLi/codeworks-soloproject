@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "maska": "^1.4.1",
     "moment": "^2.29.1",
     "v-mask": "^2.2.4",
     "vue": "^3.0.0",

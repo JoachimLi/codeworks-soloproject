@@ -9,49 +9,49 @@
 
       <div class="input-item">
         <label>dep
-          <input type="text" maxlength="4" tabindex="1" v-model="state.flightDetails.departure">
+          <input type="text" tabindex="1" v-model="state.flightDetails.departure" v-maska="'XXXX'">
         </label>
       </div>
 
       <div class="input-item">
         <label>dest
-          <input type="text" maxlength="4" tabindex="1" v-model="state.flightDetails.destination">
+          <input type="text" tabindex="1" v-model="state.flightDetails.destination" v-maska="'XXXX'">
         </label>
       </div>
 
       <div class="input-item">
         <label> a/c reg
-          <input type="text" tabindex="1" v-model="state.flightDetails.aircraftRegistration">
+          <input type="text" maxlength="6" tabindex="1" v-model="state.flightDetails.aircraftRegistration">
         </label>
       </div>
 
       <div class="input-item">
         <label>off block
-          <input type="time" tabindex="3" v-model="state.flightDetails.offBlock">
+          <input type="text" tabindex="3" v-model="state.flightDetails.offBlock" v-maska="'##:##'" placeholder="__:__">
         </label>
       </div>
 
       <div class="input-item">
         <label>on block
-          <input type="time" tabindex="3" v-model="state.flightDetails.onBlock">
+          <input type="text" tabindex="3" v-model="state.flightDetails.onBlock" v-maska="'##:##'" placeholder="__:__">
         </label>
       </div>
 
       <div class="input-item">
         <label>a/c type
-          <input type="text" maxlength="4" tabindex="2" v-model="state.flightDetails.aircraftType">
+          <input type="text" tabindex="2" v-model="state.flightDetails.aircraftType" v-maska="'XXXX'">
         </label>
       </div>
 
       <div class="input-item">
         <label>takeoff
-          <input type="time" tabindex="3" v-model="state.flightDetails.takeOff">
+          <input type="text" tabindex="3" v-model="state.flightDetails.takeOff" v-maska="'##:##'" placeholder="__:__">
         </label>
       </div>
 
       <div class="input-item">
         <label>landing
-          <input type="time" tabindex="3" v-model="state.flightDetails.landing">
+          <input type="text" tabindex="3" v-model="state.flightDetails.landing" v-maska="'##:##'" placeholder="__:__">
         </label>
       </div>
 
@@ -60,7 +60,7 @@
     <div class="input-group">
       <div class="input-item" v-for="(category, index) in categories" :key="index">
         <label>{{category.title}}
-          <input type="time" tabindex="4" v-model="category.timeLogged">
+          <input type="text" tabindex="4" v-model="category.timeLogged" v-maska="'##:##'" placeholder="__:__">
         </label>
       </div>
     </div>
@@ -149,14 +149,6 @@ export default {
           &::-webkit-calendar-picker-indicator{
             margin-left: 0px;
           }
-        }
-
-        &[type="time"]::-webkit-calendar-picker-indicator {
-          display: none;
-        }
-
-        &.time {
-          text-align: right;
         }
       }
     }
