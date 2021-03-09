@@ -5,7 +5,7 @@
         <h4>{{text}}</h4>
         <a @click="$emit('toggleModal')">X</a>    <!-- emit event to parent -->
       </div>
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;

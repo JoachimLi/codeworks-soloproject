@@ -1,17 +1,24 @@
 <template>
-<div>
-  <h1>logbook</h1>
-  <flight-log v-if="$store.state.flights"/>
-  <h3 v-else>Loading...</h3>
-  <Modal v-if="state.addFlight" text="add flight">
-    <form-add-flight @toggleModal="test"/>
-  </Modal>
-  <Button @click="onToggleModal" text="add flight"/>
-</div>
+  <div>
+
+    <h1>logbook</h1>
+
+    <flight-log v-if="$store.state.flights"/>
+
+    <h3 v-else>Loading...</h3>
+
+    <Modal v-if="state.addFlight" @toggleModal="toggleModal" text="add flight">
+      <form-add-flight ref="newFlightData" />
+      <Button @click="saveNewFlight" text="log"/>
+    </Modal>
+
+    <Button @click="toggleModal" text="add flight"/>
+
+  </div>
 </template>
 
 <script>
-import { onMounted, reactive } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
 import { getFlights } from '../ApiService/logbook.ApiService'
 import store from '../store'
 import FlightLog from '../components/FlightLog.vue'
@@ -28,13 +35,17 @@ export default {
       addFlight: false // determines whether form-add-flight element is visible
     })
 
-    function onToggleModal () {
+    function toggleModal () {
       state.addFlight = !state.addFlight
-      console.log('modal state', state.addFlight)
+      console.log('toggle modal state', state.addFlight)
     }
 
-    function test () {
-      console.log('test')
+    // refers to the ref prop on the form-add-flight component on line 7
+    const newFlightData = ref(null) // null as default value
+
+    function saveNewFlight () {
+      newFlightData.value.addFlight()
+      toggleModal()
     }
 
     async function fetchFlights (userId) {
@@ -50,12 +61,16 @@ export default {
 
     return {
       state,
-      onToggleModal,
-      test
+      newFlightData,
+      toggleModal,
+      saveNewFlight
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  text-transform: capitalize;
+}
 </style>

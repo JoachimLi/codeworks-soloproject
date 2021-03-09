@@ -64,7 +64,6 @@
         </label>
       </div>
     </div>
-    <Button text="Log" tabindex="5"/>
   </form>
 </template>
 
@@ -73,26 +72,24 @@ import { computed, reactive } from 'vue'
 import store from '../store'
 import { flight } from '../models/flight.model'
 import { setFlight } from '../ApiService/logbook.ApiService'
-import Button from './Button.vue'
 
 export default {
-  components: { Button },
   props: ['toggleModal'],
   name: 'FormAddFlight',
 
-  setup (_, { emit }) {
+  setup () {
     const state = reactive({
       flightDetails: { ...flight } // flight => flight model from import
     })
 
     const categories = computed(() => store.state.user.categoriesToTrack)
 
+    // is being called from Logbook.vue
     async function addFlight () {
       const flight = state.flightDetails
       flight.categories = categories.value // data in computed properties need to be accessed with the value property
       flight.userId = store.state.user._id
       const newFlight = await setFlight(flight) // send new flight to api
-      emit('toggleModal') // close modal
       await store.dispatch('setFlights', [newFlight.data]) // add new flight to vuex store
     }
 
