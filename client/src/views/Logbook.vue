@@ -37,7 +37,6 @@ export default {
 
     function toggleModal () {
       state.addFlight = !state.addFlight
-      console.log('toggle modal state', state.addFlight)
     }
 
     // refers to the ref prop on the form-add-flight component on line 7
