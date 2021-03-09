@@ -87,6 +87,12 @@ export default {
     // is being called from Logbook.vue
     async function addFlight () {
       const flight = state.flightDetails
+      // input returns string, convert strings to numbers
+      flight.offBlock = Number(flight.offBlock.replace(':', ''))
+      flight.onBlock = Number(flight.onBlock.replace(':', ''))
+      flight.takeOff = Number(flight.takeOff.replace(':', ''))
+      flight.landing = Number(flight.landing.replace(':', ''))
+
       flight.categories = categories.value // data in computed properties need to be accessed with the value property
       flight.userId = store.state.user._id
       const newFlight = await setFlight(flight) // send new flight to api
