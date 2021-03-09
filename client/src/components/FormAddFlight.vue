@@ -145,6 +145,7 @@ export default {
 
         &[type="date"] {
           width: 125px;
+          text-transform: lowercase;
 
           &::-webkit-calendar-picker-indicator{
             margin-left: 0px;

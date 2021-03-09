@@ -9,7 +9,7 @@
 
     <Modal v-if="state.addFlight" @toggleModal="toggleModal" text="add flight">
       <form-add-flight ref="newFlightData" />
-      <Button @click="saveNewFlight" text="log"/>
+      <Button tabindex="5" @click="saveNewFlight" text="log"/>
     </Modal>
 
     <Button @click="toggleModal" text="add flight"/>

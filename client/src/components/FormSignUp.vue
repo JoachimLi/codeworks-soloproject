@@ -24,13 +24,9 @@
 
       <div class="user-info-item">
         <label for="confirmPassword">Confirm Password</label>
-        <input id="confirmPassword" type="password" v-model="state.confirmPassword" placeholder="Confirm Password">
+        <input class="confirm-password" id="confirmPassword" type="password" v-model="state.confirmPassword" placeholder="Confirm Password">
       </div>
-
-      <!-- <div>
-        <button type="submit"><span>Sign Up</span></button>
-      </div> -->
-      <Button text="Sign Up" />
+      <Button text="Sign up" />
     </form>
   </div>
 </template>
@@ -91,7 +87,7 @@ export default {
     margin: auto;
     margin-top: 40px;
     padding: 40px;
-    box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px $mainGray;
     border-radius: 5px;
 
     h1 {
@@ -125,7 +121,7 @@ export default {
           padding-left: 5px;
           border: none;
           border-radius: 5px;
-          box-shadow: 0 0 5px gray;
+          box-shadow: 0 0 5px $mainGray;
 
           &::placeholder {
             font-family: 'Quicksand', sans-serif;
