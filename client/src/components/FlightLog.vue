@@ -67,9 +67,7 @@ export default {
     })
 
     function toggleDetails (flight) {
-      console.log('flight._id', flight._id)
       state.showDetails === flight._id ? state.showDetails = false : state.showDetails = flight._id
-      console.log('showDetails', state.showDetails)
     }
 
     const $moment = inject('$moment') // inject $moment, as provided in main.js

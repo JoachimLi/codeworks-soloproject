@@ -27,13 +27,13 @@
 
       <div class="input-item">
         <label>off block
-          <input type="text" tabindex="3" v-model="state.flightDetails.offBlock" v-maska="'##:##'" placeholder="__:__">
+          <input type="text" tabindex="3" v-model="state.flightDetails.offBlock" v-maska="'##:##'" placeholder="____">
         </label>
       </div>
 
       <div class="input-item">
         <label>on block
-          <input type="text" tabindex="3" v-model="state.flightDetails.onBlock" v-maska="'##:##'" placeholder="__:__">
+          <input type="text" tabindex="3" v-model="state.flightDetails.onBlock" v-maska="'##:##'" placeholder="____">
         </label>
       </div>
 
@@ -45,13 +45,13 @@
 
       <div class="input-item">
         <label>takeoff
-          <input type="text" tabindex="3" v-model="state.flightDetails.takeOff" v-maska="'##:##'" placeholder="__:__">
+          <input type="text" tabindex="3" v-model="state.flightDetails.takeOff" v-maska="'##:##'" placeholder="____">
         </label>
       </div>
 
       <div class="input-item">
         <label>landing
-          <input type="text" tabindex="3" v-model="state.flightDetails.landing" v-maska="'##:##'" placeholder="__:__">
+          <input type="text" tabindex="3" v-model="state.flightDetails.landing" v-maska="'##:##'" placeholder="____">
         </label>
       </div>
 
