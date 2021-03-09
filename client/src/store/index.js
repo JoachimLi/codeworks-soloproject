@@ -26,6 +26,10 @@ export default createStore({
         const flightsArr = [...state.flights, ...flts]
         state.flights = flightsArr
       }
+    },
+
+    RESET_FLIGHTS (state) {
+      state.flights = null
     }
   },
 
@@ -50,6 +54,10 @@ export default createStore({
         return 0
       })
       commit('SET_FLIGHTS', flts)
+    },
+
+    resetFlights ({commit}) {
+      commit('RESET_FLIGHTS')
     }
   },
 
