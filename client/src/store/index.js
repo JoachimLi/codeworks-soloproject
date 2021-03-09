@@ -20,11 +20,10 @@ export default createStore({
     },
 
     SET_FLIGHTS (state, flts) {
-      if (!state.flights) { // if flights array does not exist yet
-        state.flights = flts
-      } else { // if it does exist, add new flight(s)
-        const flightsArr = [...state.flights, ...flts]
-        state.flights = flightsArr
+      if (!state.flights) state.flights = flts
+      else {
+        const flightsArray = [...state.flights, ...flts]
+        state.flights = flightsArray
       }
     },
 
@@ -47,16 +46,10 @@ export default createStore({
     },
 
     setFlights ({ commit }, flts) {
-      // sort flights descending by date
-      flts.sort((a, b) => {
-        if (a.date < b.date) return 1
-        if (a.date > b.date) return -1
-        return 0
-      })
       commit('SET_FLIGHTS', flts)
     },
 
-    resetFlights ({commit}) {
+    resetFlights ({ commit }) {
       commit('RESET_FLIGHTS')
     }
   },

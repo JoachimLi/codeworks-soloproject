@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
     <h3>flight log</h3>
-    <div class="flight" v-for="flight in $store.state.flights" :key="flight._id">
+    <!-- <div class="flight" v-for="flight in $store.state.flights" :key="flight._id"> -->
+    <div class="flight" v-for="flight in sortedFlights" :key="flight._id">
       <div class="flex">
         <div class="container">
           <div class="heading">date</div>
@@ -59,6 +60,7 @@
 <script>
 import { inject, reactive } from 'vue'
 export default {
+  props: ['sortedFlights'],
   name: 'FlightLog',
 
   setup () {

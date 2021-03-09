@@ -3,7 +3,7 @@
 
     <h1>logbook</h1>
 
-    <flight-log v-if="$store.state.flights"/>
+    <flight-log v-if="sortedFlights" :sortedFlights="sortedFlights"/>
 
     <h3 v-else>Loading...</h3>
 
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref } from 'vue'
 import { getFlights } from '../ApiService/logbook.ApiService'
 import store from '../store'
 import FlightLog from '../components/FlightLog.vue'
@@ -33,6 +33,22 @@ export default {
   setup () {
     const state = reactive({
       addFlight: false // determines whether form-add-flight element is visible
+    })
+
+    const sortedFlights = computed(() => {
+      const flights = store.state.flights
+      if (flights) {
+        flights.sort((a, b) => {
+          if (a.date < b.date) return 1
+          if (a.date > b.date) return -1
+          if (a.date === b.date) {
+            if (a.offBlock < b.offBlock) return 1
+            if (a.offBlock > b.offBlock) return -1
+          }
+          return 0
+        })
+      }
+      return flights
     })
 
     function toggleModal () {
@@ -61,6 +77,7 @@ export default {
 
     return {
       state,
+      sortedFlights,
       newFlightData,
       toggleModal,
       saveNewFlight
