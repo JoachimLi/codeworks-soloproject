@@ -60,9 +60,9 @@ export default {
     align-items: stretch;
     justify-content: space-between;
     width: 100%;
-    background-color: #000;
+    background-color: black;
     height: 2rem;
-    border-top: 5px solid #000;
+    border-top: 5px solid black;
 
     .link-wrapper {
       display: flex;
@@ -83,8 +83,8 @@ export default {
       font-weight: 700;
 
       &.router-link-exact-active {
-        background-color: #fff;
-        color: #000;
+        background-color: white;
+        color: black;
       }
     }
 

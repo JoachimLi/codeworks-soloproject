@@ -11,7 +11,7 @@
         <label for="password">Password</label>
         <input id="password" type="password" v-model="state.password" placeholder="Password">
       </div>
-      <Button text="Log In"/>
+      <Button text="Log in"/>
     </form>
   </div>
 </template>
@@ -43,8 +43,7 @@ export default {
         store.dispatch('setUser', response.data)
         router.push({ name: 'Logbook' })
       } catch (error) {
-        // TODO: throw better error
-        console.log('error', error)
+        throw new Error(error)
       }
     }
 
@@ -57,7 +56,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// TODO: improve styling
   .wrapper {
     box-sizing: border-box;
     display: flex;
@@ -66,7 +64,7 @@ export default {
     margin: auto;
     margin-top: 40px;
     padding: 40px;
-    box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px $mainGray;
     border-radius: 5px;
 
     h1 {
@@ -99,7 +97,7 @@ export default {
           padding-left: 5px;
           border: none;
           border-radius: 5px;
-          box-shadow: 0 0 5px gray;
+          box-shadow: 0 0 5px $mainGray;
 
           &::placeholder {
             font-family: 'Quicksand', sans-serif;

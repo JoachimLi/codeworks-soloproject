@@ -65,8 +65,7 @@ export default {
         router.push({ name: 'Profile' })
         console.log('store.state.user', store.state.user)
       } catch (error) {
-        // TODO: throw better error
-        console.log('error', error)
+        throw new Error(error)
       }
     }
 

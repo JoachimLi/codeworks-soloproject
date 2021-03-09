@@ -82,7 +82,7 @@ export default {
     margin: 0 0 10px;
     display: flex;
     flex-wrap: wrap;
-    box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px $mainGray;
     border-radius: 5px;
 
     li {
@@ -101,7 +101,7 @@ export default {
         border-radius: 10px;
         text-transform: uppercase;
         vertical-align: middle;
-        background-color: rgb(219, 219, 219);
+        background-color: $mainGray;
 
         p:last-child {
             color: rgb(165, 165, 165);
@@ -135,7 +135,7 @@ export default {
       padding-left: 5px;
       border: none;
       border-radius: 5px;
-      box-shadow: 0 0 5px gray;
+      box-shadow: 0 0 5px $mainGray;
       margin-bottom: 10px;
     }
   }

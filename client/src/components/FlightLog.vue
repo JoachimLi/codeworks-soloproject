@@ -96,7 +96,7 @@ export default {
     flex-direction: column;
     justify-content: space-around;
     align-items: stretch;
-    box-shadow: 0 0 5px #cfcfcf;
+    box-shadow: 0 0 5px $mainGray;
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 20px;
@@ -113,13 +113,13 @@ export default {
       .heading {
         text-transform: capitalize;
         margin-bottom: 5px;
-        border-bottom: 1px solid rgb(207, 207, 207);
+        border-bottom: 1px solid $mainGray;
       }
 
       .total {
         text-transform: capitalize;
         margin-top: 5px;
-        border-top: 1px solid rgb(207, 207, 207);
+        border-top: 1px solid $mainGray;
       }
     }
 

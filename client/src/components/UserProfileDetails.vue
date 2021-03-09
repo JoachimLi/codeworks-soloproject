@@ -16,7 +16,7 @@
         <h3>{{user.email}}</h3>
       </div>
 
-      <Button text="Edit Details"/>
+      <Button text="Edit details"/>
     </div>
     <div v-else>Loading...</div>
   </div>
