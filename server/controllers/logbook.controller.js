@@ -45,14 +45,17 @@ const total = (start, end) => {
   const mins = (() => {
     const startMins = start % 100;
     const endMins = end % 100;
+    let min = 0;
 
-    if (startMins <= endMins) return endMins - startMins;
+    if (startMins <= endMins) min = endMins - startMins;
     else {
       correction = 1;
-      return endMins + 60 - startMins;
+      min = endMins + 60 - startMins;
     }
+    
+    return min < 10 ? `0${min}` : `${min}`;
   })();
-  
+
   return `${hrs - correction}:${mins}`;
 };
 

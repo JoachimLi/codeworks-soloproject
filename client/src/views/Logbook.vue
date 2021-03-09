@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
 
     <h1>logbook</h1>
 
@@ -54,7 +54,7 @@ export default {
         const flights = await getFlights(id) // get all the detailed flight objects for a user
         await store.dispatch('setFlights', flights.data) // and store them in the vuex store
       } catch (error) {
-        console.log('error', error)
+        throw new Error(error)
       }
     }
     onMounted(fetchFlights(store.state.user._id)) // get all flights from db on component mount
