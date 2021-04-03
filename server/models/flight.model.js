@@ -2,8 +2,7 @@ const mongoose = require('../db');
 
 const flightSchema = new mongoose.Schema({
   userId: {
-    // type: mongoose.Schema.Types.ObjectId,    // use the user _id (which is a type ObjectId) as foreign key
-    type: String,                               // temporary
+    type: String,
     required: true
   },
   date: {
