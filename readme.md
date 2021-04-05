@@ -3,9 +3,13 @@ Proof of concept for a flexible pilot logbook solution.
 
 ## Screenshots
 ![](/readme-assets/screenshot1.jpg)<br><br>
+add any categories you want to log:
 ![](/readme-assets/screenshot2.jpg)<br><br>
+enter your flight's information:
 ![](/readme-assets/screenshot3.jpg)<br><br>
+flight abstract: <br>
 ![](/readme-assets/screenshot4.jpg)<br><br>
+expanded flight view with all the info that was logged:
 ![](/readme-assets/screenshot5.jpg)<br><br>
 ## Getting started
 1. Fork this repo, or clone it directly by running<br>
