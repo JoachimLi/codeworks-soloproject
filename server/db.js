@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const DB_PORT = 27017;
-const DB_NAME = 'solo-project';
+const DB_PORT = process.env.DB_PORT;
+const DB_NAME = process.env.DB_NAME;
 
 mongoose.connect(
   `mongodb://localhost:${DB_PORT}/${DB_NAME}`, {
