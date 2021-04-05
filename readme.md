@@ -17,7 +17,7 @@ expanded flight view with all the info that was logged:
 git clone https://github.com/JoachimLi/codeworks-soloproject
 ```
 2. Install nodemon globally, if you havent already.<br>
-3. Make sure you have MongoDB running on port 27017.<br>
+3. Configure the .env.example file to your liking and rename it .env<br>
 4. To run the backend, change to the server directory in the console/terminal and run the nodemon command.<br>
 ```
 cd server
